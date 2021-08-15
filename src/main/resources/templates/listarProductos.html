@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" content="text/html; charset=UTF-8">
+<title>Listado Productos</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+	integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<img
+				src="https://i.ibb.co/Rvdk2bS/79a1121f7cc847a0811872c303c0c8f0.png"
+				alt="" width="150" height="100" class="d-inline-block align-text-top">
+			<h2>  HonduMarket</h2>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/producto/crearProducto}"> Registro de Producto</a></li>
+
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<table class="table table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th>ID</th>
+				<th>Nombre del Producto</th>
+				<th>Precio Venta</th>
+				<th>Precio Compra</th>
+				<th>Existencia</th>
+				<th>Descripcion</th>
+
+			</tr>
+		</thead>
+		<tr th:each="tmpProductos:${productos}">
+			<td th:text="${tmpProductos.idProducto}"></td>
+			<td th:text="${tmpProductos.nombreProducto}"></td>
+			<td th:text="${tmpProductos.precioVenta}"></td>
+			<td th:text="${tmpProductos.precioCompra}"></td>
+			<td th:text="${tmpProductos.existencia}"></td>
+			<td th:text="${tmpProductos.descripcion}"></td>
+		</tr>
+	</table>
+
+
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+		integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
